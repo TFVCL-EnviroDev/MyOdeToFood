@@ -1,0 +1,32 @@
+﻿@page
+@model MyOdeToFood.ClientRestaurantsModel
+@{
+    ViewData["Title"] = "ClientRestaurants";
+}
+
+<h1>ClientRestaurants</h1>
+
+@section Scripts{ 
+    
+    <environment include="Development">
+        <script src="C:\Users\Mufana\source\repos\MyOdeToFood\node_modules\datatables.net\js\jquery.dataTables.js"></script>
+        <script src="C:\Users\Mufana\source\repos\MyOdeToFood\node_modules\datatables.net-bs\js\dataTables.bootstrap.js"></script>
+        <link href="C:\Users\Mufana\source\repos\MyOdeToFood\node_modules\datatables.net-bs\css\dataTables.bootstrap.css" rel="stylesheet" />
+    </environment>
+
+    <environment exclude="Development">
+
+    </environment>
+        
+        <script>
+
+        $(function () {
+            $.ajax("/api/restaurants/",
+                { method: "get" })
+                .then(function (response) {
+                    console.dir(response);
+                });
+        });
+
+    </script>
+}
